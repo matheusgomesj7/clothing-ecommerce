@@ -5,6 +5,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword
 } from 'firebase/auth';
 import {
   getFirestore,
@@ -22,6 +23,7 @@ const firebaseConfig = {
   appId: "1:599462691186:web:7d91b59890cac88fd71deb"
 };
 
+// eslint-disable-next-line
 const firebaseApp = initializeApp(firebaseConfig);
 const googleProvider = new GoogleAuthProvider();
 
@@ -62,4 +64,10 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
 
   return await createUserWithEmailAndPassword(auth, email, password);
+}
+
+export const signInAuthUserWithEmailAndPassword = async (email, password) => {
+  if (!email || !password) return;
+
+  return await signInWithEmailAndPassword(auth, email, password);
 }
