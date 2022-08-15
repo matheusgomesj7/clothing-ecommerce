@@ -14,7 +14,7 @@ const App = () => {
 
   return (
     <Routes>
-      <Route path='/' element={<NavBar />}>
+      <Route path='/clothing-ecommerce' element={<NavBar />}>
         <Route path='/clothing-ecommerce' index element={<Home />} />
         <Route path='shop' element={<Shop />} />
         <Route path='auth' element={<Authentication />} />
