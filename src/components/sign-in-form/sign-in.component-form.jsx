@@ -36,7 +36,6 @@ const SignInForm = () => {
 
       const { user } = await signInAuthUserWithEmailAndPassword(email, password);
       resetFormFields();
-      // setCurrentUser(user);
       console.log(user);
       
     } catch(err) {
