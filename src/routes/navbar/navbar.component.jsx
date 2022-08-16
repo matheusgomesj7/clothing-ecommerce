@@ -16,7 +16,7 @@ const NavBar = () => {
   return (
     <Fragment>
       <nav className="navigation">
-        <Link className="logo-container" to='/'>
+        <Link className="logo-container" to='/clothing-ecommerce'>
           <CrwnLogo className="logo" />
         </Link>
         <div className="nav-links-container">
