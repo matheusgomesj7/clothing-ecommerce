@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { CartContext } from '../../contexts/cart-dropdown.context';
+import { CartContext } from '../../contexts/cart.context';
 import { CartIconContainer, ShoppingIcon, ItemCount } from './cart-icon.styles.jsx';
 
 const CartIcon = () => {

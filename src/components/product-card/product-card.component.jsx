@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { CartContext } from '../../contexts/cart-dropdown.context';
+import { CartContext } from '../../contexts/cart.context';
 import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 import { ProductCardContainer, Footer, Name, Price } from './product-card.styles.jsx';
 
