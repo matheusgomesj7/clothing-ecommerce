@@ -1,6 +1,5 @@
 {
   "name": "crwn-clothing",
-  "homepage": "clothing-ecommerce/",
   "version": "0.1.0",
   "private": false,
   "dependencies": {

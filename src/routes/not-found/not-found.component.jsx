@@ -4,10 +4,12 @@ import { NotFoundMessage } from "./not-found.styles";
 
 const NotFound = () => {
   const navigate = useNavigate();
+
+  //*fixme
   
   useEffect(() => {
     setTimeout(() => {
-     navigate('/clothing-ecommerce');
+     navigate('/');
     }, 1500);
   }, [navigate]);
 

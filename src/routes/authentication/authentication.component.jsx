@@ -12,8 +12,10 @@ const Authentication = () => {
   const currentUser = useSelector(selectCurrentUser);
   const navigate = useNavigate();
 
+  //*fixme
+
   useEffect(() => {
-    const navigateToShop = () => navigate('/clothing-ecommerce/shop');
+    const navigateToShop = () => navigate('/shop');
     setTimeout(() => {
       if (currentUser) {
       navigateToShop();

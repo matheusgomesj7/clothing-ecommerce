@@ -22,10 +22,12 @@ const App = () => {
     return unsubscribe;
   }, [dispatch]);
 
+  //*fixme
+
   return (
     <Routes>
-      <Route path='/clothing-ecommerce' element={<NavBar />}>
-        <Route path='/clothing-ecommerce' index element={<Home />} />
+      <Route path='/' element={<NavBar />}>
+        <Route path='/' index element={<Home />} />
         <Route path='shop/*' element={<Shop />} />
         <Route path='auth' element={<Authentication />} />
         <Route path='checkout' element={<Checkout />} />

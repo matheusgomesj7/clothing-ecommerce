@@ -13,11 +13,11 @@ const NavBar = () => {
   const currentUser = useSelector(selectCurrentUser);
 
   const { isCartOpen  } = useContext(CartContext)
-
+//*fixme
   return (
     <Fragment>
       <NavigationContainer>
-        <LogoContainer to='/clothing-ecommerce'>
+        <LogoContainer to='/'>
           <CrwnLogo className="logo" />
         </LogoContainer>
         <NavLinks>
