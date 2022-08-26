@@ -13,7 +13,6 @@ const NavBar = () => {
   const currentUser = useSelector(selectCurrentUser);
 
   const { isCartOpen  } = useContext(CartContext)
-//*fixme
   return (
     <Fragment>
       <NavigationContainer>

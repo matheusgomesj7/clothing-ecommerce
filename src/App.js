@@ -22,8 +22,6 @@ const App = () => {
     return unsubscribe;
   }, [dispatch]);
 
-  //*fixme
-
   return (
     <Routes>
       <Route path='/' element={<NavBar />}>
