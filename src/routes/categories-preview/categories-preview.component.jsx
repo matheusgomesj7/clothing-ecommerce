@@ -6,6 +6,8 @@ import CategoryPreview from '../../components/category-preview/category-preview.
 const CategoriesPreview = () => {
   const categoriesMap = useSelector(selectCategoriesMap);
 
+  //*fixme: put listener here so it always map when categoriesMap changes, not just one time
+
   return (
     <Fragment>
       {categoriesMap &&  Object.keys(categoriesMap).map((title) => {

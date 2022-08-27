@@ -11,11 +11,11 @@ const Shop = () => {
 
   useEffect(() => {
     const getCategoriesMap = async () => {
-      const categoriesArray = await getCategoriesAndDocuments();
+      const categoriesArray = await getCategoriesAndDocuments('categories');
       dispatch(setCategories(categoriesArray));
     }
 
-    return getCategoriesMap;
+    getCategoriesMap();
   }, [dispatch])
 
   return (
