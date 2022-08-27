@@ -10,7 +10,7 @@ const CategoriesPreview = () => {
 
   return (
     <Fragment>
-      {categoriesMap &&  Object.keys(categoriesMap).map((title) => {
+      {Object.keys(categoriesMap).map((title) => {
         const currentProductsCategory = categoriesMap[title];
         return (
           <CategoryPreview
