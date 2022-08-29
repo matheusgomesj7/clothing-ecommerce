@@ -8,11 +8,14 @@ import Home from "./routes/home/home.component";
 import Authentication from "./routes/authentication/authentication.component";
 import Shop from "./routes/shop/shop.component";
 import Checkout from "./routes/checkout/checkout.component";
+import NotFound from "./routes/not-found/not-found.component";
 
 const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    //*fixme por algum motivo rodando 2vzs
+    // console.log('estou rodando 2 vzs no app')
     const unsubscribe = onAuthStateChangedListener((user) => {
       if (user) {
         createUserDocumentFromAuth(user);
@@ -20,7 +23,8 @@ const App = () => {
       dispatch(setCurrentUser(user));
     });
     return unsubscribe;
-  }, [dispatch]);
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <Routes>
@@ -29,6 +33,7 @@ const App = () => {
         <Route path='shop/*' element={<Shop />} />
         <Route path='auth' element={<Authentication />} />
         <Route path='checkout' element={<Checkout />} />
+        <Route path='/*' element={<NotFound />} />
       </Route>
     </Routes>
   );
