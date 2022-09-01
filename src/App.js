@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Routes, Route } from "react-router-dom";
-import { setCurrentUser } from "./store/user/user.action";
-import { onAuthStateChangedListener, createUserDocumentFromAuth } from "./utils/firebase/firebase.utils";
+import { checkUserSession } from "./store/user/user.action";
 import NavBar from "./routes/navbar/navbar.component";
 import Home from "./routes/home/home.component";
 import Authentication from "./routes/authentication/authentication.component";
@@ -11,18 +10,10 @@ import Checkout from "./routes/checkout/checkout.component";
 import NotFound from "./routes/not-found/not-found.component";
 
 const App = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); 
 
   useEffect(() => {
-    //*fixme por algum motivo rodando 2vzs
-    // console.log('estou rodando 2 vzs no app')
-    const unsubscribe = onAuthStateChangedListener((user) => {
-      if (user) {
-        createUserDocumentFromAuth(user);
-      };
-      dispatch(setCurrentUser(user));
-    });
-    return unsubscribe;
+    dispatch(checkUserSession());
     // eslint-disable-next-line
   }, []);
 

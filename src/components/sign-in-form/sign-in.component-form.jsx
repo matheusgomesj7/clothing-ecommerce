@@ -1,11 +1,9 @@
 import { useState } from "react";
-import {
-  signInWithGooglePopup,
-  signInAuthUserWithEmailAndPassword
-} from '../../utils/firebase/firebase.utils';
 import FormInput from "../form-input/form-input.component";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import { SignInContainer, ButtonsContainer } from './sign-in.styles.jsx';
+import { useDispatch } from "react-redux";
+import { googleSignInStart, emailSignInStart } from "../../store/user/user.action";
 
 const defaultFormFields = {
   email: '',
@@ -19,33 +17,32 @@ const SignInForm = () => {
 
   const resetFormFields = () => setFormFields(defaultFormFields);
 
-  const signInWithGoogle = async () => {
-    await signInWithGooglePopup();
-  }
+  const dispatch = useDispatch();
+  const handleGoogleSignIn = () => dispatch(googleSignInStart());
 
   const handleChange = event => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
   }
 
-  const handleSubmit = async event => {
+  const handleSubmit = event => {
     event.preventDefault();
 
     try {
-      const { user } = await signInAuthUserWithEmailAndPassword(email, password);
+      dispatch(emailSignInStart(email, password))
       resetFormFields();
-      console.log(user);
-    } catch(err) {
-      switch(err.code) {
-        case 'auth/wrong-password':
-          alert('incorrect password');
-          break;
-        case 'auth/user-not-found':
-          alert('no user associated with this email');
-          break;
-        default:
-          console.log(err);
-      }
+    } catch (err) {
+      console.log('user sign-in failed', err);
+      // switch(err.code) {
+      //   case 'auth/wrong-password':
+      //     alert('incorrect password');
+      //     break;
+      //   case 'auth/user-not-found':
+      //     alert('no user associated with this email');
+      //     break;
+      //   default:
+      //     console.log(err);
+      // };
     };
   };
 
@@ -76,7 +73,7 @@ const SignInForm = () => {
           <Button 
             type="button"
             buttonType={BUTTON_TYPE_CLASSES.google}
-            onClick={signInWithGoogle}
+            onClick={handleGoogleSignIn}
           >
             Google Sign in
           </Button>
