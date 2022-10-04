@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, FormEvent, ChangeEvent } from "react";
 import FormInput from "../form-input/form-input.component";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
-import { SignInContainer, ButtonsContainer } from './sign-in.styles.jsx';
+import { SignInContainer, ButtonsContainer } from './sign-in.styles';
 import { useDispatch } from "react-redux";
 import { googleSignInStart, emailSignInStart } from "../../store/user/user.action";
 
@@ -20,30 +20,20 @@ const SignInForm = () => {
   const dispatch = useDispatch();
   const handleGoogleSignIn = () => dispatch(googleSignInStart());
 
-  const handleChange = event => {
-    const { name, value } = event.target;
-    setFormFields({ ...formFields, [name]: value });
-  }
-
-  const handleSubmit = event => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     try {
-      dispatch(emailSignInStart(email, password))
+      dispatch(emailSignInStart(email, password));
       resetFormFields();
     } catch (err) {
       console.log('user sign-in failed', err);
-      // switch(err.code) {
-      //   case 'auth/wrong-password':
-      //     alert('incorrect password');
-      //     break;
-      //   case 'auth/user-not-found':
-      //     alert('no user associated with this email');
-      //     break;
-      //   default:
-      //     console.log(err);
-      // };
-    };
+    }
+  };
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setFormFields({ ...formFields, [name]: value });
   };
 
   return (
