@@ -15,5 +15,23 @@ export const CategoryContainer = styled.div`
   @media screen and (max-width: 800px) {
     grid-template-columns: 1fr 1fr;
     gap: 15px;
+
+    button {
+        display: block;
+        opacity: 0.9;
+        min-width: unset;
+        padding: 0 10px;
+        font-size: 2.5vw;
+      }
+  }
+
+  @media screen and (max-width: 500px) {
+    button {
+      display: block;
+      opacity: 0.9;
+      min-width: unset;
+      padding: 0 10px;
+      font-size: 3.5vw;
+    }
   }
 `
