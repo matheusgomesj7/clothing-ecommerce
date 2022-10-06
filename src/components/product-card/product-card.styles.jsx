@@ -42,8 +42,60 @@ export const Footer = styled.footer`
 export const Name = styled.span`
   width: 90%;
   margin-bottom: 15px;
+
+  @media screen and (max-width: 800px) {
+    width: 70%;
+    font-size: 2.5vw;
+  }
+
+  @media screen and (max-width: 700px) {
+    width: 70%;
+    font-size: 3vw;
+  }
+
+  @media screen and (max-width: 550px) {
+    width: 70%;
+    font-size: 3.5vw;
+  }
+
+  @media screen and (max-width: 425px) {
+    width: 70%;
+    font-size: 4vw;
+  }
+
+  @media screen and (max-width: 350px) {
+    width: 70%;
+    font-size: 5vw;
+  }
+
+
 `
 
 export const Price = styled.span`
   width: 10%;
+
+  @media screen and (max-width: 800px) {
+    padding-right: 20%;
+    font-size: 2.5vw;
+  }
+
+  @media screen and (max-width: 700px) {
+    padding-right: 20%;
+    font-size: 3vw;
+  }
+
+  @media screen and (max-width: 550px) {
+    padding-right: 20%;
+    font-size: 3.5vw;
+  }
+
+  @media screen and (max-width: 425px) {
+    padding-right: 20%;
+    font-size: 4vw;
+  }
+
+  @media screen and (max-width: 350px) {
+    padding-right: 20%;
+    font-size: 5vw;
+  }
 `

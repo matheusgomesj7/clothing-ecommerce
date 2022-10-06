@@ -5,6 +5,42 @@ export const CategoryPreviewContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
+
+  @media screen and (max-width: 800px) {
+    align-items: center;
+
+    button {
+        display: block;
+        opacity: 0.9;
+        min-width: unset;
+        padding: 0 10px;
+        font-size: 2.5vw;
+      }
+
+    &:hover {
+      .image {
+        opacity: unset;
+      }
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    align-items: center;
+
+    button {
+        display: block;
+        opacity: 0.9;
+        min-width: unset;
+        padding: 0 10px;
+        font-size: 3.5vw;
+      }
+
+    &:hover {
+      .image {
+        opacity: unset;
+      }
+    }
+  }
 `
 
 export const Title = styled(Link)`
@@ -17,4 +53,10 @@ export const Preview = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 20px;
+
+  @media screen and (max-width: 800px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
 `

@@ -4,12 +4,14 @@ import { Routes, Route } from "react-router-dom";
 import { checkUserSession } from "./store/user/user.action";
 import Spinner from "./components/spinner/spinner.component";
 import NotFound from "./routes/not-found/not-found.component";
+import { GlobalStyle } from './global.styles'
 
 const NavBar = lazy(() => import("./routes/navbar/navbar.component"));
 const Home = lazy(() => import("./routes/home/home.component"));
 const Authentication = lazy(() => import("./routes/authentication/authentication.component"));
 const Shop = lazy(() => import("./routes/shop/shop.component"));
 const Checkout = lazy(() => import("./routes/checkout/checkout.component"));
+
 
 const App = () => {
   const dispatch = useDispatch(); 
@@ -21,6 +23,7 @@ const App = () => {
 
   return (
     <Suspense fallback={<Spinner />}>
+      <GlobalStyle />
       <Routes>
         <Route path='/' element={<NavBar />}>
           <Route path='/' index element={<Home />} />
